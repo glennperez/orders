@@ -17,7 +17,11 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use('/api/auth', auth)
 app.use('/api/meals', meals)
 app.use('/api/orders', orders)
-app.get('/', (req, res) => res.send('This is my great API!'));
+app.get('/api', (req, res) => {
+    res.setHeader('Content-Type', 'text/html')
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
+    res.send('This is my great API!');
+})
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));
