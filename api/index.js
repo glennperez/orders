@@ -12,7 +12,7 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 
-const uri = process.env.DB_DRIVER
+const uri = "mongodb+srv://root:gcn9GGJYOGa96WwL@cluster0.u2dmw.mongodb.net/almuerzi-db?retryWrites=true&w=majority"//process.env.DB_DRIVER
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use('/api/auth', auth)
