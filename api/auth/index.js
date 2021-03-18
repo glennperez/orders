@@ -7,8 +7,8 @@ const isAuthenticated = (req, res, next) => {
         return res.sendStatus(403)
     }
     jwt.verify(token, 'secret-key', (err, decoded) => {
-        const { _id } = decoded
-        Users.findOne({ _id }).exec()
+        const { id } = decoded
+        Users.findOne({ _id: id }).exec()
             .then(user => {
                 req.user = user
                 next()
