@@ -24,7 +24,7 @@ app.get('/api', (req, res) => {
     res.send('This is my great API!');
 })
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));
 
 
